@@ -5,8 +5,7 @@ import { valuesService } from "../services/ValueService";
 export class ValuesController extends BaseController {
   constructor() {
     super("api/values");
-    this.router = express
-      .Router()
+    this.router
       .get("", this.getAll)
       .post("", this.create);
   }
