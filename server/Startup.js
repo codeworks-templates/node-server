@@ -3,6 +3,7 @@ import cors from "cors";
 import express from "express";
 import helmet from "helmet";
 import { RegisterControllers, Paths } from "../Setup";
+import { logger } from "./utils/Logger";
 
 export default class Startup {
   static ConfigureGlobalMiddleware(app) {
@@ -44,7 +45,7 @@ export default class Startup {
         error.status = 400;
       }
       if (error.status == 500) {
-        console.error(error); // should write to external
+        logger.error(error); // should write to external
       }
       res.status(error.status).send({ error: error.toString(), url: req.url });
     });

@@ -1,4 +1,3 @@
-import express from "express";
 import BaseController from "../utils/BaseController";
 import { valuesService } from "../services/ValueService";
 
@@ -11,7 +10,8 @@ export class ValuesController extends BaseController {
   }
   async getAll(_, res, next) {
     try {
-      return res.send(["value1", "value2"]);
+      const values = valuesService.find()
+      return res.send(values);
     } catch (error) {
       next(error);
     }

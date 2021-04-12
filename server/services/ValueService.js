@@ -3,8 +3,8 @@ import { BadRequest } from "../utils/Errors";
 
 class ValuesService {
   async find(query={}) {
-    let values = await dbContext.Values.find(query);
-    return values;
+    // let values = await dbContext.Values.find(query);
+    return ["value1", "value2"];
   }
   async findById(id) {
     let value = await dbContext.Values.findById(id);

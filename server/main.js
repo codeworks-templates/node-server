@@ -1,6 +1,7 @@
 import express from "express";
 import Startup from "./Startup";
 import DbContext from "./db/DbConfig";
+import { logger } from "./utils/Logger";
 
 //create server & socketServer
 const app = express();
@@ -15,5 +16,5 @@ DbContext.connect();
 
 //Start Server
 app.listen(port, () => {
-  console.log("Server running on port:", port);
+  logger.log("Server running on port:", port);
 });
