@@ -8,7 +8,14 @@ export class ValuesController extends BaseController {
       .get("", this.getAll)
       .post("", this.create);
   }
-  async getAll(_, res, next) {
+
+  /**
+   * Sends found values to a client by request
+   * @param {import("express").Request} req 
+   * @param {import("express").Response} res 
+   * @param {import("express").NextFunction} next 
+   */
+  async getAll(req, res, next) {
     try {
       const values = valuesService.find()
       return res.send(values);
@@ -16,9 +23,17 @@ export class ValuesController extends BaseController {
       next(error);
     }
   }
+
+  /**
+   * Creates a value from request body and returns it
+   * @param {import("express").Request} req 
+   * @param {import("express").Response} res 
+   * @param {import("express").NextFunction} next 
+   */
   async create(req, res, next) {
     try {
-      res.send(req.body);
+      const value = valuesService.create(req.body)
+      res.send(value);
     } catch (error) {
       next(error);
     }

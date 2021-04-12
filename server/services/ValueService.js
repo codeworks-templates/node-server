@@ -1,17 +1,14 @@
-import { dbContext } from "../db/DbContext";
 import { BadRequest } from "../utils/Errors";
 
 class ValuesService {
-  async find(query={}) {
-    // let values = await dbContext.Values.find(query);
-    return ["value1", "value2"];
+  create(valueData) {
+    if(!valueData){throw new BadRequest('Invalid value data')}
+    // left intentionally useless
+    return valueData
   }
-  async findById(id) {
-    let value = await dbContext.Values.findById(id);
-    if (!value) {
-      throw new BadRequest("Invalid Id");
-    }
-    return value;
+  async find(query={}) {
+    // left intentionally useless
+    return ["value1", "value2"];
   }
 }
 
