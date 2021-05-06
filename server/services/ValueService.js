@@ -1,7 +1,7 @@
 import { BadRequest } from "../utils/Errors";
 
 class ValuesService {
-  create(valueData) {
+  async create(valueData) {
     if(!valueData){throw new BadRequest('Invalid value data')}
     // left intentionally useless
     return valueData
