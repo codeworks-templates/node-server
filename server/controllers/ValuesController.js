@@ -17,7 +17,7 @@ export class ValuesController extends BaseController {
    */
   async getAll(req, res, next) {
     try {
-      const values = valuesService.find()
+      const values = await valuesService.find()
       return res.send(values);
     } catch (error) {
       next(error);
@@ -32,7 +32,7 @@ export class ValuesController extends BaseController {
    */
   async create(req, res, next) {
     try {
-      const value = valuesService.create(req.body)
+      const value = await valuesService.create(req.body)
       res.send(value);
     } catch (error) {
       next(error);
