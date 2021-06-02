@@ -1,14 +1,15 @@
 import fs from 'fs'
+import path from 'path'
 import BaseController from './server/utils/BaseController'
 import { logger } from './server/utils/Logger'
 
 export class Paths {
   static get Public() {
-    return `${__dirname}/client/`
+    return path.join(__dirname, 'client')
   }
 
   static get Server() {
-    return `${__dirname}/server`
+    return path.join(__dirname, 'server')
   }
 
   static get Controllers() {
@@ -24,6 +25,9 @@ export function RegisterControllers(router) {
       if (!controllerName.endsWith('.js')) return
       const fileHandler = await import(Paths.Controllers + '/' + controllerName)
       let ControllerClass = fileHandler[controllerName.slice(0, -3)]
+      if (!ControllerClass) {
+        throw new Error(`${controllerName} The exported class does not match the filename`)
+      }
       if (ControllerClass.default) {
         ControllerClass = ControllerClass.default
       }

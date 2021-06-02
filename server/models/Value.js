@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-const Schema = mongoose.Schema;
+import mongoose from 'mongoose'
+const Schema = mongoose.Schema
 
 const Value = new Schema(
   {
@@ -7,6 +7,6 @@ const Value = new Schema(
     description: { type: String, required: true }
   },
   { timestamps: true, toJSON: { virtuals: true } }
-);
+)
 
-export default Value;
+export default Value
