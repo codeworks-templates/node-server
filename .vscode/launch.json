@@ -7,9 +7,14 @@
         {
             "type": "pwa-node",
             "request": "launch",
-            "name": "Launch Program",
+            "name": "Start Server",
             "skipFiles": [
                 "<node_internals>/**"
+            ],
+            ,
+            "resolveSourceMapLocations": [
+                "${workspaceFolder}/**",
+                "!**/node_modules/**"
             ],
             "program": "${workspaceFolder}/index.js"
         }
