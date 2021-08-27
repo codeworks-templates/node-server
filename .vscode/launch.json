@@ -11,11 +11,12 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
+            "program": "${workspaceFolder}/index.js",
+            "sourceMaps": true,
             "resolveSourceMapLocations": [
                 "${workspaceFolder}/**",
                 "!**/node_modules/**"
             ],
-            "program": "${workspaceFolder}/index.js"
         }
     ]
 }
