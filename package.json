@@ -20,7 +20,7 @@
     "mongoose": "^5.12.12"
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
+    "@babel/eslint-parser": "^7.5.4",
     "bootstrap": "^4.6.0",
     "eslint": "^7.26.0",
     "eslint-config-standard": "^16.0.2",
