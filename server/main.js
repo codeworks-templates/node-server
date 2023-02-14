@@ -7,6 +7,12 @@ import { logger } from './utils/Logger'
 const app = express()
 const port = process.env.PORT || 3000
 
+// Ignore TLS warning in development 
+if (process.env.NODE_ENV == 'dev') {
+  // @ts-ignore
+  process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 1;
+}
+
 // Establish Socket
 Startup.ConfigureGlobalMiddleware(app)
 Startup.ConfigureRoutes(app)
